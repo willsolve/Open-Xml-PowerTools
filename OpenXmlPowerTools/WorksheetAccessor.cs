@@ -571,11 +571,13 @@ namespace OpenXmlPowerTools
                     {
                         value = GetCellValue(document, sourceSheet, column, row);
                         if (value is double)
+                        {
                             hasDouble = true;
-                        if (Convert.ToDouble(value) < minValue)
-                            minValue = Convert.ToDouble(value);
-                        if (Convert.ToDouble(value) > maxValue)
-                            maxValue = Convert.ToDouble(value);
+                            if (Convert.ToDouble(value) < minValue)
+                                minValue = Convert.ToDouble(value);
+                            if (Convert.ToDouble(value) > maxValue)
+                                maxValue = Convert.ToDouble(value);
+                        }
                     }
                     sharedItems.Add(new XAttribute(NoNamespace.containsSemiMixedTypes, "0"),
                         new XAttribute(NoNamespace.containsString, "0"), new XAttribute(NoNamespace.containsNumber, "1"),
